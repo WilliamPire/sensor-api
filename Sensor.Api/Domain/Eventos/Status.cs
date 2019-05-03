@@ -8,12 +8,8 @@ namespace Sensor.Api.Domain.Eventos
 {
     public enum Status
     {
-        [Description("Enviado")]
-        Enviado,
-        [Description("Enfileirado")]
-        Enfileirado,
-        [Description("Registrado")]
-        Registrado,
+        [Description("Processado")]
+        Processado,
         [Description("Erro")]
         Erro
     }
