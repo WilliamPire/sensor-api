@@ -16,8 +16,8 @@ namespace Sensor.Api.Domain.Eventos
         {
             this.Id = Guid.NewGuid();
             this.TimeStamp = timeStamp;
-            this.Tag = valor;
-            this.Valor = tag;
+            this.Tag = tag;
+            this.Valor = valor;
             this.Status = status;
         }
     }

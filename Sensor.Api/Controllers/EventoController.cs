@@ -21,6 +21,21 @@ namespace Sensor.Api.Controllers
             _repositorio = repositorio;
         }
 
+        // POST: api/Evento
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Domain.Eventos.Commands.Inserir.Request request)
+        {
+            var response = await _mediator.Send(request);
+
+            if (response.Errors.Any())
+                return BadRequest(response.Errors);
+
+            return Ok(response.Result);
+        }
+
         // GET: api/Evento
         [ProducesResponseType(200, Type = typeof(IList<Domain.Eventos.Evento>))]
         [ProducesResponseType(404)]
@@ -34,6 +49,7 @@ namespace Sensor.Api.Controllers
             return Ok(eventos);
         }
 
+        // GET: api/Evento/Sensor/Paginado
         [ProducesResponseType(200, Type = typeof(Page<Domain.Eventos.Evento>))]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -70,31 +86,6 @@ namespace Sensor.Api.Controllers
               _repositorio.ListaGraficos();
 
             return Ok(graficoStatus);
-        }
-
-        // POST: api/Evento
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Domain.Eventos.Commands.Inserir.Request request)
-        {
-            var response = await _mediator.Send(request);
-
-            if (response.Errors.Any())
-                return BadRequest(response.Errors);
-
-            return Ok(response.Result);
-        }
-
-        // GET: api/Evento
-        [ProducesResponseType(200, Type = typeof(string))]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        [HttpGet("Sensor/Teste")]
-        public IActionResult TesteFunction()
-        {
-            return Ok("API sensor respondendo com sucesso.");
         }
     }
 }

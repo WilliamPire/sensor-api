@@ -27,12 +27,18 @@ namespace Sensor.Api.Domain.Eventos.Commands.Inserir
         {
             try
             {
-                await _eventoWriteBus.SendMessagesAsync(new Evento(request.TimeStamp, request.Tag, request.Valor));
+                //COMENTADO O USO DA MENSAGERIA POR CONTA DO TEMPO NÃO CONSEGUI PUBLICAR O COMO SERVICO NO DOCKER
+                //O PROJETO CONSOLE (SENSOR PROCESSAMENTO) RESPONSÁVEL POR BAIXAR TODAS AS MENSAGENS DA FILA.
+                //PARA TESTE LOCAL SOMENTE DESCOMENTAR A LILNHA E DEIXAR RODANDO O PROJETO CONSOLE.
+
+                //await _eventoWriteBus.SendMessagesAsync(new Evento(request.TimeStamp, request.Tag, request.Valor));
+                await _eventoWrite.Inserir(new Evento(request.TimeStamp, request.Tag, request.Valor, EnumMethods.GetDescription(Status.Enviado)));
                 await _mediator.Publish(new Notification
                 {
                     TimeStamp = request.TimeStamp,
                     Tag = request.Tag,
-                    Valor = request.Valor
+                    Valor = request.Valor,
+                    Status = EnumMethods.GetDescription(Status.Enviado)
                 }, cancellationToken);
 
                 return new Response("Evento criado com sucesso.");
