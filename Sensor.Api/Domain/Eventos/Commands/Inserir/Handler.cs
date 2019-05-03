@@ -32,13 +32,13 @@ namespace Sensor.Api.Domain.Eventos.Commands.Inserir
                 //PARA TESTE LOCAL SOMENTE DESCOMENTAR A LILNHA E DEIXAR RODANDO O PROJETO CONSOLE.
 
                 //await _eventoWriteBus.SendMessagesAsync(new Evento(request.TimeStamp, request.Tag, request.Valor));
-                await _eventoWrite.Inserir(new Evento(request.TimeStamp, request.Tag, request.Valor, EnumMethods.GetDescription(Status.Enviado)));
+                await _eventoWrite.Inserir(new Evento(request.TimeStamp, request.Tag, request.Valor, EnumMethods.GetDescription(Status.Processado)));
                 await _mediator.Publish(new Notification
                 {
                     TimeStamp = request.TimeStamp,
                     Tag = request.Tag,
                     Valor = request.Valor,
-                    Status = EnumMethods.GetDescription(Status.Enviado)
+                    Status = EnumMethods.GetDescription(Status.Processado)
                 }, cancellationToken);
 
                 return new Response("Evento criado com sucesso.");
