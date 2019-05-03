@@ -1,11 +1,10 @@
-﻿using System;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Sensor.Api.Core;
+using Sensor.Api.Domain.Eventos.Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Sensor.Api.Domain.Eventos.Repository;
 
 namespace Sensor.Api.Controllers
 {
@@ -31,6 +30,18 @@ namespace Sensor.Api.Controllers
         {
             IList<Domain.Eventos.Evento> eventos =
                await _repositorio.ListarTodos();
+
+            return Ok(eventos);
+        }
+
+        [ProducesResponseType(200, Type = typeof(Page<Domain.Eventos.Evento>))]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        [HttpGet("Sensor/Paginado")]
+        public async Task<IActionResult> GetPage(string sort, string order, int page, int pagesize)
+        {
+            Page<Domain.Eventos.Evento> eventos =
+               await _repositorio.ListarPaginado(sort,order, page, pagesize);
 
             return Ok(eventos);
         }
@@ -74,6 +85,16 @@ namespace Sensor.Api.Controllers
                 return BadRequest(response.Errors);
 
             return Ok(response.Result);
+        }
+
+        // GET: api/Evento
+        [ProducesResponseType(200, Type = typeof(string))]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        [HttpGet("Sensor/Teste")]
+        public IActionResult TesteFunction()
+        {
+            return Ok("API sensor respondendo com sucesso.");
         }
     }
 }

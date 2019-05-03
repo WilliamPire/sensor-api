@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Sensor.Api.Core;
 using Sensor.Api.Domain.Eventos;
 using Sensor.Api.Domain.Eventos.Models;
 using Sensor.Api.Domain.Eventos.Repository;
@@ -16,17 +17,42 @@ namespace Sensor.Api.Repository.Eventos
         public Evento(IConfiguration configuration)
             : base(configuration) { }
 
+        public async Task<Page<Domain.Eventos.Evento>> ListarPaginado(string sort, string order, int page, int pagesize)
+        {
+            var result = new Page<Domain.Eventos.Evento>();
+            var registros = Collection.Find(x => true);
+
+            result.TotalRegistros = await registros.CountDocumentsAsync();
+            result.Items = await registros.Skip((page - 1) * pagesize)
+                                          .Limit(pagesize)
+                                          .Sort(order == "desc" ? Builders<Domain.Eventos.Evento>.Sort.Descending(sort) : Builders<Domain.Eventos.Evento>.Sort.Ascending(sort))
+                                          .ToListAsync();
+            return result;
+        }
+
         public async Task Inserir(Domain.Eventos.Evento evento)
             => await Collection.InsertOneAsync(evento);
 
-        public async Task<IList<Domain.Eventos.Evento>> ListarPorRegiao(string regiao)
-            => await Collection.Find(x => x.Tag.Contains(regiao)).ToListAsync();
-
-        public async Task<IList<Domain.Eventos.Evento>> ListarPorSensor(string sensor)
-            => await Collection.Find(x => x.Tag.Contains(sensor)).ToListAsync();
-
         public async Task<IList<Domain.Eventos.Evento>> ListarTodos()
             => await Collection.Find(x => true).ToListAsync();
+
+        public GraficoEvento ListaGraficos()
+        {
+            var result = Collection.Find(x => true).ToList();
+
+            var agrupados = result.GroupBy(p => p.Status, (key, g) => new { Status = key, Count = g.Count() });
+
+            GraficoEvento graficos = new GraficoEvento();
+
+
+            foreach (var item in agrupados)
+            {
+                graficos.Labels.Add(item.Status);
+                graficos.Data.Add(item.Count);
+            }
+
+            return graficos;
+        }
 
         public IList<TotalizadorRegiao> ListaConsololidadoSesores()
         {
@@ -41,6 +67,8 @@ namespace Sensor.Api.Repository.Eventos
 
             return totalizadoresRegiao;
         }
+
+        #region MÉTODOS PRIVADOS
 
         private static void ObterSensoresPorRegiao(List<string> regioeos, List<Domain.Eventos.Evento> result, List<SensorRegiao> sennn)
         {
@@ -69,31 +97,15 @@ namespace Sensor.Api.Repository.Eventos
                 {
                     var countSensoresPorRegiao = result.Count(x => x.Tag.ToLower().Contains(sensorNome.ToLower()) && x.Tag.ToLower().Contains(sensorRegiao.Regiao.ToLower()));
                     if (countSensoresPorRegiao > 0)
-                        totalizadorRegiao.TotalizadorSensores.Add(new TotalizadorSensor { Sensor = $"brasil.{sensorRegiao.Regiao.ToLower()}.{sensorNome} - {countSensoresPorRegiao}", Total = countSensoresPorRegiao });
+                        totalizadorRegiao.TotalizadorSensores.Add(new TotalizadorSensor { Sensor = $"brasil.{sensorRegiao.Regiao.ToLower()}.{sensorNome}", Total = countSensoresPorRegiao });
                 }
                 totalizadorRegiao.Total = totalizadorRegiao.TotalizadorSensores.Sum(x => x.Total);
-                totalizadorRegiao.Regiao = $"brasil.{sensorRegiao.Regiao.ToLower()} - {totalizadorRegiao.Total}";
+                totalizadorRegiao.Regiao = $"brasil.{sensorRegiao.Regiao.ToLower()}";
 
                 totalizadoresRegiao.Add(totalizadorRegiao);
             }
         }
 
-        public GraficoEvento ListaGraficos()
-        {
-            var result = Collection.Find(x => true).ToList();
-
-            var agrupados = result.GroupBy(p => p.Status, (key, g) => new { Status = key, Count = g.Count() });
-
-            GraficoEvento graficos = new GraficoEvento();
-
-
-            foreach (var item in agrupados)
-            {
-                graficos.Labels.Add(item.Status);
-                graficos.Data.Add(item.Count);
-            }
-
-            return graficos;
-        }
+        #endregion
     }
 }

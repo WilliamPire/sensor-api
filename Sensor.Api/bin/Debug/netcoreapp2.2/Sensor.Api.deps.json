@@ -4475,7 +4475,7 @@
     "Microsoft.Azure.Services.AppAuthentication/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q0yOHL68zxcAldEpipEw4HKsnYCvtdb1dOqd30wGlO87geIgQht7JltZYQzKaGU5AzmN8dD+zvgmG04y2tuliw==",
+      "sha512": "sha512-oSVQ+YLgn0PfDLBRwOtHrkw06Pc6HvqIVrtFFWMg/1eafY+Hbrm1CSXnzXKXJwqUUv0ynvuwqzjN+IFR3g588w==",
       "path": "microsoft.azure.services.appauthentication/1.0.1",
       "hashPath": "microsoft.azure.services.appauthentication.1.0.1.nupkg.sha512"
     },
