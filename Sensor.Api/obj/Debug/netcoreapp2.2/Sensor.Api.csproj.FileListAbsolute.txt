@@ -11,4 +11,3 @@ C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Debug\netcoreapp2.2\Sensor.Api
 C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Debug\netcoreapp2.2\Sensor.Api.pdb
 C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Debug\netcoreapp2.2\Sensor.Api.dll
 C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Debug\netcoreapp2.2\Sensor.Api.pdb
-C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Debug\netcoreapp2.2\Sensor.Api.csprojAssemblyReference.cache
