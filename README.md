@@ -1,4 +1,4 @@
-<img src="http://www.radixeng.com.br/images/campaign-slogan-white.png" alt="Desafio Radix"> 
+<img src="https://www.comotrabalhar.org/wp-content/uploads/2016/06/trabalhar-na-radix.jpg" alt="Desafio Radix"> 
 
 
 # sensor-api
