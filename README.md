@@ -20,3 +20,8 @@ O objetivo desta Api implementada em .NET Core é receber milhares de eventos de
 - MongoDB
 - Application Insights
 - Interface do Swagger
+
+## Ideias
+
+- Foi implementado na solução o serviço de ESB da Microsoft porém trecho que envia mensagem para o serviço na Azure está comentada, como foi solicitado no desafio que o mesmo deveria está publicado. 
+O projeto resposável por realizar a baixa das mensagens enfileiradas seria uma Function que seria disparada através trigger que sob demanda iria processando em lotes as mensagens recebidas. Esta ideia seria para ter como solução em caso de qualquer falha na API de processamento eu não perderia os eventos recebidos, pois ficariam todos enfileirados e assim que o serviço de processamento estivesse disponivel as mesagens seriam registradas.
