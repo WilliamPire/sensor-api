@@ -1,0 +1,13 @@
+C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.deps.json
+C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.runtimeconfig.json
+C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.runtimeconfig.dev.json
+C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.dll
+C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.pdb
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.csproj.CoreCompileInputs.cache
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.RazorAssemblyInfo.cache
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.RazorAssemblyInfo.cs
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.AssemblyInfoInputs.cache
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.AssemblyInfo.cs
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.RazorTargetAssemblyInfo.cache
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.dll
+C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.pdb
