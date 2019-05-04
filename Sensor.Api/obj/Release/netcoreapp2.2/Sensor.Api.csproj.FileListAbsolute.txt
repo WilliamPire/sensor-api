@@ -3,7 +3,6 @@ C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.A
 C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.runtimeconfig.dev.json
 C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.dll
 C:\Users\willi\source\repos\Sensor\Sensor.Api\bin\Release\netcoreapp2.2\Sensor.Api.pdb
-C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.csprojAssemblyReference.cache
 C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.csproj.CoreCompileInputs.cache
 C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.RazorAssemblyInfo.cache
 C:\Users\willi\source\repos\Sensor\Sensor.Api\obj\Release\netcoreapp2.2\Sensor.Api.RazorAssemblyInfo.cs

@@ -9,7 +9,7 @@ namespace Sensor.Api.Domain.Eventos.Commands.Inserir
 {
     public class Notification : INotification
     {
-        public DateTimeOffset TimeStamp { get; set; }
+        public long TimeStamp { get; set; }
         public string Tag { get; set; }
         public string Valor { get; set; }
         public string Status { get; set; }
