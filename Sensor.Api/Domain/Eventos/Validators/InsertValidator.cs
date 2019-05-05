@@ -13,10 +13,6 @@ namespace Sensor.Api.Domain.Eventos.Validators
             RuleFor(a => a.Tag)
                 .NotEmpty()
                 .WithMessage("A tag é obrigatória");
-
-            RuleFor(a => a.Valor)
-                .NotEmpty()
-                .WithMessage("O valor é obrigatório");
         }
     }
 }

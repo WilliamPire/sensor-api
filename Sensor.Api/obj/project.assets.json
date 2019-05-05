@@ -15192,11 +15192,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\willi\\source\\repos\\Sensor\\Sensor.Api\\Sensor.Api.csproj",
+      "projectUniqueName": "C:\\GitLab\\sensor-api\\Sensor.Api\\Sensor.Api.csproj",
       "projectName": "Sensor.Api",
-      "projectPath": "C:\\Users\\willi\\source\\repos\\Sensor\\Sensor.Api\\Sensor.Api.csproj",
+      "projectPath": "C:\\GitLab\\sensor-api\\Sensor.Api\\Sensor.Api.csproj",
       "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willi\\source\\repos\\Sensor\\Sensor.Api\\obj\\",
+      "outputPath": "C:\\GitLab\\sensor-api\\Sensor.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

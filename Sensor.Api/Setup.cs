@@ -1,16 +1,10 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Sensor.Api.Domain.Eventos.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Sensor.Api
 {
@@ -42,7 +36,6 @@ namespace Sensor.Api
         {
             services.AddTransient(typeof(IEventoWrite), typeof(Repository.Eventos.Evento));
             services.AddTransient(typeof(IEventoRead), typeof(Repository.Eventos.Evento));
-            services.AddTransient(typeof(Domain.Eventos.ServiceBus.IEventoWrite), typeof(ServiceBus.Eventos.Evento));
         }
 
         public static void ConfigureSwagger(this IServiceCollection services)

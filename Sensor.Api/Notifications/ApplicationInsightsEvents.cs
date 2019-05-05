@@ -17,6 +17,7 @@ namespace Sensor.Api.Notifications
             await Task.Run(() =>
                 {
                     //DEIXEI COMENTADO PARA NÃO ENVIAR EVENTOS PARA POIS TEREMOS MUITAS REQUISIÇÕES
+                    //ESTOU COM POUCOS CRÉDITOS EM MINHA CONTA PARA UTILIZAR O SERVIÇO
                     
                     //telemetry.TrackEvent("Evento.Inserir", new Dictionary<string, string>
                     //{
